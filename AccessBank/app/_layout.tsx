@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
-import { Stack } from 'expo-router';
+import { Stack, Tabs } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
+
+import MoreOptionScreen from '@/app/screens/Homescreens/MoreOptions';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -29,6 +31,7 @@ export default function RootLayout() {
         <Stack.Screen name="(auth)/Login" />
         <Stack.Screen name="(auth)/Signup" />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+ 
       </Stack>
       <StatusBar style="light" />
     </>

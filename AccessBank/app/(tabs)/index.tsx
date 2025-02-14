@@ -1,9 +1,11 @@
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Link } from 'expo-router';
+import { Link, useRouter } from 'expo-router';
+import MoreOptionScreen from '../screens/Homescreens/MoreOptions';
 
 export default function HomeScreen() {
+  const router  = useRouter();
   const services = [
     [
       {
@@ -30,10 +32,18 @@ export default function HomeScreen() {
         bg: '#fef3c7',
         route: '/topup',
       },
+      {
+        id: 4,
+        name: 'International Transfers',
+        icon: 'globe',
+        color: '#0ea5e9',
+        bg: '#e0f2fe',
+        route: '/international-transfers',
+      },
     ],
     [
       {
-        id: 4,
+        id: 5,
         name: 'Investments',
         icon: 'trending-up',
         color: '#7c3aed',
@@ -41,7 +51,7 @@ export default function HomeScreen() {
         route: '/investments',
       },
       {
-        id: 5,
+        id: 6,
         name: 'Loans',
         icon: 'cash',
         color: '#e11d48',
@@ -49,17 +59,25 @@ export default function HomeScreen() {
         route: '/loans',
       },
       {
-        id: 6,
+        id: 7,
         name: 'Insurance',
         icon: 'shield-checkmark',
         color: '#0891b2',
         bg: '#cffafe',
         route: '/insurance',
       },
+      {
+        id: 8,
+        name: 'Vouchers',
+        icon: 'pricetag',
+        color: '#f59e0b',
+        bg: '#fef3c7',
+        route: '/vouchers',
+      },
     ],
     [
       {
-        id: 7,
+        id: 9,
         name: 'Cards',
         icon: 'card',
         color: '#c2410c',
@@ -67,7 +85,7 @@ export default function HomeScreen() {
         route: '/cards',
       },
       {
-        id: 8,
+        id: 10,
         name: 'Savings',
         icon: 'wallet',
         color: '#4f46e5',
@@ -75,15 +93,58 @@ export default function HomeScreen() {
         route: '/savings',
       },
       {
+        id: 11,
+        name: 'Wallet Funding',
+        icon: 'wallet',
+        color: '#0f766e',
+        bg: '#ccfbf1',
+        route: '/wallet-funding',
+      },
+      {
+        id: 12,
+        name: 'Utilities',
+        icon: 'flash',
+        color: '#f43f5e',
+        bg: '#fee2e2',
+        route: '/utilities',
+      },
+    ],
+    [
+      {
+        id: 13,
+        name: 'Help & Support',
+        icon: 'help-circle',
+        color: '#3b82f6',
+        bg: '#dbeafe',
+        route: '/help-support',
+      },
+      {
+        id: 14,
+        name: 'Settings',
+        icon: 'settings',
+        color: '#6b7280',
+        bg: '#f3f4f6',
+        route: '/settings',
+      },
+      {
+        id: 15,
+        name: 'Notifications',
+        icon: 'notifications',
+        color: '#eab308',
+        bg: '#fef9c3',
+        route: '/notifications',
+      },
+      {
         id: 9,
         name: 'More',
         icon: 'grid',
         color: '#475569',
         bg: '#f1f5f9',
-        route: '/services',
+        route: "/screens/Homescreens/MoreOptions",
       },
     ],
   ];
+  
 
   return (
     <ScrollView style={styles.container}>
@@ -116,10 +177,10 @@ export default function HomeScreen() {
         {services.map((row, rowIndex) => (
           <View key={rowIndex} style={styles.serviceRow}>
             {row.map((service) => (
-              <Link key={service.id} href={service.route} asChild>
+              <Link key={service.id} href={service.route as any} asChild>
                 <TouchableOpacity style={styles.serviceItem}>
                   <View style={[styles.serviceIcon, { backgroundColor: service.bg }]}>
-                    <Ionicons name={service.icon} size={24} color={service.color} />
+                    <Ionicons name={service.icon as any} size={20} color={service.color} />
                   </View>
                   <Text style={styles.serviceName}>{service.name}</Text>
                 </TouchableOpacity>
@@ -165,7 +226,7 @@ export default function HomeScreen() {
         ].map((transaction) => (
           <TouchableOpacity key={transaction.id} style={styles.transaction}>
             <View style={[styles.transactionIcon, { backgroundColor: `${transaction.color}20` }]}>
-              <Ionicons name={transaction.icon} size={24} color={transaction.color} />
+              <Ionicons name={transaction.icon as any} size={24} color={transaction.color} />
             </View>
             <View style={styles.transactionInfo}>
               <Text style={styles.transactionName}>{transaction.name}</Text>
@@ -263,24 +324,25 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   serviceRow: {
+    // flexDirection: 'row',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    // justifyContent: 'space-between',
     marginBottom: 20,
   },
   serviceItem: {
     alignItems: 'center',
-    width: '30%',
+    width: "25%",
   },
   serviceIcon: {
-    width: 60,
-    height: 60,
+    width: 40,
+    height: 40,
     borderRadius: 30,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 8,
   },
   serviceName: {
-    fontSize: 12,
+    fontSize: 9,
     color: '#64748b',
     textAlign: 'center',
   },

@@ -75,7 +75,7 @@ export default function ProfileScreen() {
               <TouchableOpacity key={itemIndex} style={styles.menuItem}>
                 <View style={styles.menuItemLeft}>
                   <View style={styles.menuItemIcon}>
-                    <Ionicons name={item.icon} size={20} color="#2563eb" />
+                    <Ionicons name={item.icon as any} size={20} color="#2563eb" />
                   </View>
                   <Text style={styles.menuItemLabel}>{item.label}</Text>
                 </View>

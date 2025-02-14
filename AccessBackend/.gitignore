@@ -1,0 +1,60 @@
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables
+.env
+
+# Build output
+dist/
+build/
+
+# TypeScript cache and output
+*.tsbuildinfo
+
+# Miscellaneous
+.DS_Store
+*.swp
+.vscode/
+.idea/
+*.iml
+
+# Debugging
+*.log
+*.tmp
+
+# Coverage directory used by testing frameworks like Jest
+coverage/
+
+# PM2 logs and dumps
+.pids
+*.pid
+*.gz
+
+# Optional npm cache directory
+.npm/
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variable file
+.env.*
+
+# Mac system files
+.DS_Store
+
+# TypeScript Declaration Files
+*.d.ts

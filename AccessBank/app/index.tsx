@@ -59,6 +59,7 @@ export default function OnboardingScreen() {
   };
 
   return (
+
     <LinearGradient colors={["#0B2447", '#fff']} style={styles.container}>
       <View style={styles.content}>
         <FlatList

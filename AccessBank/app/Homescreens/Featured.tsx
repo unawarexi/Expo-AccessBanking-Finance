@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, FlatList, StyleSheet, Dimensions, ScrollView } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons'; 
 import { useNavigation } from '@react-navigation/native'; 
+import { useRouter } from 'expo-router';
 
 const { width } = Dimensions.get('window');
 
 const FeaturedComponent = () => {
   const navigation = useNavigation();
   const [activeSlide, setActiveSlide] = useState(0);
+  const router = useRouter();
 
   const beneficiaries = [
     { id: 1, name: 'John Doe' },
@@ -62,7 +64,7 @@ const FeaturedComponent = () => {
       <View style={styles.featuredSection}>
         <View style={styles.featuredHeader}>
           <Text style={styles.sectionTitle}>Featured</Text>
-          <TouchableOpacity onPress={() => navigation.navigate('./CampaignPage')}>
+          <TouchableOpacity onPress={() => router.push('./Homescreens/CampaignPage')}>
             <Text style={styles.moreButton}>More</Text>
           </TouchableOpacity>
         </View>

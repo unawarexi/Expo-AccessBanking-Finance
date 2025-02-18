@@ -4,7 +4,6 @@ import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 
-import MoreOptionScreen from '@/app/screens/Homescreens/MoreOptions';
 
 SplashScreen.preventAutoHideAsync();
 

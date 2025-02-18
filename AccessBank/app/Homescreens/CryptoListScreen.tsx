@@ -2,20 +2,30 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, FlatList, StyleSheet, Image } from 'react-native';
 import axios from 'axios';
 import { FontAwesome } from '@expo/vector-icons'; // For up/down chart arrows
+import LoadingScreen from '@/components/LoadingScreen';
 
 const CryptoListScreen = () => {
   const [coins, setCoins] = useState<any[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [isLoading, setIsLoading] = useState(true); 
+
 
   useEffect(() => {
     // Fetch all coins
-    axios.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest', {
-      headers: {
-        'X-CMC_PRO_API_KEY': '3d601765-66c9-4801-b916-8d810027088c',
-      },
-    })
-    .then(response => setCoins(response.data.data))
-    .catch(error => console.error(error));
+    axios
+      .get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest', {
+        headers: {
+          'X-CMC_PRO_API_KEY': '3d601765-66c9-4801-b916-8d810027088c',
+        },
+      })
+      .then((response) => {
+        setCoins(response.data.data);
+        setIsLoading(false); 
+      })
+      .catch((error) => {
+        console.error(error);
+        setIsLoading(false); 
+      });
   }, []);
 
   const filteredCoins = coins.filter(coin =>
@@ -50,6 +60,12 @@ const CryptoListScreen = () => {
     );
   };
 
+  if (isLoading) {
+    // Show the LoadingScreen component while loading data
+    return <LoadingScreen />;
+  }
+
+
   return (
     <View style={styles.container}>
       <TextInput
@@ -61,6 +77,7 @@ const CryptoListScreen = () => {
       <FlatList
         data={filteredCoins}
         renderItem={renderItem}
+        showsVerticalScrollIndicator = {false}
         keyExtractor={(item) => item.id.toString()}
       />
     </View>

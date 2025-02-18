@@ -2,7 +2,8 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from 'rea
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Link, useRouter } from 'expo-router';
-import MoreOptionScreen from '../screens/Homescreens/MoreOptions';
+import FeaturedComponent from "../Homescreens/Featured"
+import PartialCrypto from '../Homescreens/PartialCrypto';
 
 export default function HomeScreen() {
   const router  = useRouter();
@@ -140,7 +141,7 @@ export default function HomeScreen() {
         icon: 'grid',
         color: '#475569',
         bg: '#f1f5f9',
-        route: "/screens/Homescreens/MoreOptions",
+        route: "/Homescreens/MoreOptions",
       },
     ],
   ];
@@ -172,6 +173,8 @@ export default function HomeScreen() {
         </View>
       </LinearGradient>
 
+     
+
       <View style={styles.servicesContainer}>
         <Text style={styles.sectionTitle}>Banking Services</Text>
         {services.map((row, rowIndex) => (
@@ -189,6 +192,7 @@ export default function HomeScreen() {
           </View>
         ))}
       </View>
+      <PartialCrypto />
 
       <View style={styles.transactionsSection}>
         <View style={styles.sectionHeader}>
@@ -197,6 +201,7 @@ export default function HomeScreen() {
             <Text style={styles.seeAll}>See All</Text>
           </TouchableOpacity>
         </View>
+       
 
         {[
           {
@@ -241,6 +246,7 @@ export default function HomeScreen() {
           </TouchableOpacity>
         ))}
       </View>
+      <FeaturedComponent />
     </ScrollView>
   );
 }

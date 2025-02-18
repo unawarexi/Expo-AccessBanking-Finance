@@ -4,50 +4,54 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Link } from 'expo-router';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 import { Image } from 'react-native';
+import Images from '@/constants/ImageStrings';
 
 const { width } = Dimensions.get('window');
 
 const slides = [
   {
     id: '1',
-    title: 'Banking Made Simple',
-    description: 'Experience seamless banking with our intuitive mobile app',
-    image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=500&auto=format',
+    title: 'Banking and Finance',
+    description: 'Experience seamless banking and finance management.',
+    image: Images.onboarding1,
   },
   {
     id: '2',
-    title: 'Secure Transactions',
-    description: 'Bank with confidence knowing your money is protected',
-    image: 'https://images.unsplash.com/photo-1626266061368-46a8632bac03?w=500&auto=format',
+    title: 'Family Finance',
+    description: 'Manage your family’s financial future with confidence.',
+    image: Images.onboarding2,
   },
   {
     id: '3',
-    title: 'Smart Investments',
-    description: 'Grow your wealth with our expert financial guidance',
-    image: 'https://images.unsplash.com/photo-1559526324-593bc073d938?w=500&auto=format',
+    title: 'Lifestyle & Investments',
+    description: 'Invest smartly and live your dream lifestyle.',
+    image: Images.onboarding3,
+  },
+  {
+    id: '4',
+    title: 'Banking & Crypto',
+    description: 'Integrate cryptocurrency seamlessly with banking.',
+    image: Images.onboarding4,
   },
 ];
 
-// Define the type for the item
-interface Item {
-    image: string;
-    title: string;
-    description: string;
-}
-  
 export default function OnboardingScreen() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const flatListRef = useRef<FlatList>(null);
 
-  const renderItem = ({ item }: { item: Item }) => (
-    <View style={styles.slide}>
-      <Image source={{ uri: item.image }} style={styles.image} />
+  const renderItem = ({ item }: { item: any }) => (
+    <Animated.View
+      entering={FadeIn.duration(1000)}
+      exiting={FadeOut.duration(500)}
+      style={styles.slide}
+    >
+      <Image source={ item.image } style={styles.image} />
       <Text style={styles.title}>{item.title}</Text>
       <Text style={styles.description}>{item.description}</Text>
-    </View>
+    </Animated.View>
   );
 
-  const handleScroll = (event: { nativeEvent: { layoutMeasurement: { width: any; }; contentOffset: { x: number; }; }; }) => {
+  const handleScroll = (event: { nativeEvent: { layoutMeasurement: { width: number }, contentOffset: { x: number } } }) => {
     const slideSize = event.nativeEvent.layoutMeasurement.width;
     const index = event.nativeEvent.contentOffset.x / slideSize;
     const roundIndex = Math.round(index);
@@ -55,12 +59,8 @@ export default function OnboardingScreen() {
   };
 
   return (
-    <LinearGradient colors={['#0A0F24', '#1A1B4B']} style={styles.container}>
-      <Animated.View 
-        entering={FadeIn.duration(1000)}
-        exiting={FadeOut}
-        style={styles.content}
-      >
+    <LinearGradient colors={["#0B2447", '#fff']} style={styles.container}>
+      <View style={styles.content}>
         <FlatList
           ref={flatListRef}
           data={slides}
@@ -71,7 +71,7 @@ export default function OnboardingScreen() {
           onScroll={handleScroll}
           scrollEventThrottle={16}
         />
-        
+
         <View style={styles.pagination}>
           {slides.map((_, index) => (
             <View
@@ -83,7 +83,11 @@ export default function OnboardingScreen() {
             />
           ))}
         </View>
+      </View>
 
+      <View style={styles.bottomContainer}>
+      <Text style={styles.title}>Access Bank</Text>
+        <Text style={styles.grayedText}>By clicking Get Started, you agree to our terms.</Text>
         <View style={styles.buttonContainer}>
           <Link href="/Login" asChild>
             <TouchableOpacity style={styles.button}>
@@ -91,7 +95,7 @@ export default function OnboardingScreen() {
             </TouchableOpacity>
           </Link>
         </View>
-      </Animated.View>
+      </View>
     </LinearGradient>
   );
 }
@@ -99,33 +103,39 @@ export default function OnboardingScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'space-between',
+    backgroundColor: "#0B2447",
+    
   },
   content: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: 50,
   },
   slide: {
     width,
     alignItems: 'center',
-    padding: 20,
-    paddingTop: 60,
+    paddingHorizontal: 20,
+    paddingTop: 40,
   },
   image: {
-    width: width * 0.8,
-    height: width * 0.8,
-    borderRadius: 20,
-    marginBottom: 40,
+    width: width * 1,  // Increase the width
+    height: width * 0.8,  // Increase the height proportionally
+    marginBottom: 20,
+    alignSelf: 'center',  // Center the image horizontally
   },
+
   title: {
-    fontSize: 28,
-    fontFamily: 'Poppins-Bold',
-    color: '#FFFFFF',
+    fontSize: 30,
+    fontWeight: '600',
+    color: '#0A0F24',
     textAlign: 'center',
-    marginBottom: 10,
+    marginBottom: 8,
   },
   description: {
     fontSize: 16,
-    fontFamily: 'Poppins-Regular',
-    color: '#FFFFFF',
+    color: '#444',
     textAlign: 'center',
     opacity: 0.8,
     paddingHorizontal: 20,
@@ -133,34 +143,52 @@ const styles = StyleSheet.create({
   pagination: {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
     marginTop: 20,
+    marginBottom: 10,
   },
   paginationDot: {
     width: 8,
     height: 8,
     borderRadius: 4,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#0A0F24',
     opacity: 0.3,
     marginHorizontal: 4,
   },
   paginationDotActive: {
     opacity: 1,
-    width: 20,
+    width: 50,
+    height: 8,
+    backgroundColor: 'blue',
+  },
+  bottomContainer: {
+    padding: 20,
+    backgroundColor: '#fff',
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+    elevation: 10, // Shadow on Android
+    shadowColor: '#000', // Shadow on iOS
+    shadowOffset: { width: 0, height: -2 }, // Top shadow
+    shadowOpacity: 0.2,
+    shadowRadius: 20,
+  },
+  grayedText: {
+    color: '#666',
+    textAlign: 'center',
+    marginBottom: 10,
   },
   buttonContainer: {
-    padding: 20,
-    marginBottom: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   button: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#1A73E8',
     paddingVertical: 16,
+    paddingHorizontal: 100,
     borderRadius: 12,
-    alignItems: 'center',
   },
   buttonText: {
     fontSize: 18,
-    fontFamily: 'Poppins-SemiBold',
-    color: '#0A0F24',
+    color: '#FFFFFF',
+    fontWeight: '600',
   },
 });

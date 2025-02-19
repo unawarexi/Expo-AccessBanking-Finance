@@ -1,38 +1,12 @@
-import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native'
-import React, { useState } from 'react'
-import BottomSheet, { BottomSheetBackdrop } from '@gorhom/bottom-sheet';
-import { useRouter } from 'expo-router';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import React from 'react';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import services from './HomeRoutes';
+import { Link } from 'expo-router';
 
 const HomeServices = () => {
-    const [isBottomSheetVisible, setIsBottomSheetVisible] = useState(false);
-    const bottomSheetRef = React.useRef<BottomSheet>(null);
-    const router = useRouter();
-    const snapPoints = ['40%'];
   
-    const handleServicePress = (service: { name: string; route?: string | null }) => {
-      if (service.name === 'Send Money') {
-        setIsBottomSheetVisible(true);
-        bottomSheetRef.current?.expand();
-      } else if (service.route) {
-        router.push(service.route as any);
-      }
-    };
-
-    const handleCloseBottomSheet = () => {
-        setIsBottomSheetVisible(false);
-      };
-   
-
-  const transferOptions = [
-    { id: 1, label: 'Access-to-Access', icon: 'bank', route: '/access' },
-    { id: 2, label: 'Access-to-Others', icon: 'users', route: '/others' },
-    { id: 3, label: 'Access-to-International', icon: 'globe', route: '/international' },
-    { id: 4, label: 'Access-to-Crypto', icon: 'bitcoin', route: '/crypto' },
-  ];
-
   const renderHeader = () => (
     <View style={styles.header}>
       <View>
@@ -65,55 +39,28 @@ const HomeServices = () => {
       {services.map((row, rowIndex) => (
         <View key={rowIndex} style={styles.serviceRow}>
           {row.map((service) => (
-            <TouchableOpacity
-              key={service.id}
-              style={styles.serviceItem}
-              onPress={() => handleServicePress(service)}
-            >
-              <View style={[styles.serviceIcon, { backgroundColor: service.bg }]}>
-                <Ionicons name={service.icon as any} size={20} color={service.color} />
-              </View>
-              <Text style={styles.serviceName}>{service.name}</Text>
-            </TouchableOpacity>
+            <Link key={service.id} href={service.route as any ?? '#'} asChild>
+              <TouchableOpacity style={styles.serviceItem}>
+                <View style={[styles.serviceIcon, { backgroundColor: service.bg }]}>
+                  <Ionicons name={service.icon as any} size={20} color={service.color} />
+                </View>
+                <Text style={styles.serviceName}>{service.name}</Text>
+              </TouchableOpacity>
+            </Link>
           ))}
         </View>
       ))}
     </View>
   );
 
-  const renderBottomSheet = () => (
-    <BottomSheet
-      ref={bottomSheetRef}
-      snapPoints={snapPoints}
-      enablePanDownToClose={true}
-      onClose={handleCloseBottomSheet}
-      backdropComponent={BottomSheetBackdrop}
-      style={styles.bottomSheet}
-    >
-      <View style={styles.content}>
-        <TouchableOpacity onPress={handleCloseBottomSheet} style={styles.closeButton}>
-          <Text style={styles.closeText}>X</Text>
-        </TouchableOpacity>
-
-        {transferOptions.map((option) => (
-          <TouchableOpacity key={option.id} style={styles.option} onPress={() => router.push(option.route as any)}>
-            <FontAwesome name={option.icon as any} size={24} color="#0284c7" />
-            <Text style={styles.optionText}>{option.label}</Text>
-          </TouchableOpacity>
-        ))}
-      </View>
-    </BottomSheet>
-  );
-  
   return (
     <View>
-       {renderHeader()}
-          {renderBalanceCard()}
-          {renderServices()}
-          {isBottomSheetVisible && renderBottomSheet()}
+      {renderHeader()}
+      {renderBalanceCard()}
+      {renderServices()}
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -215,39 +162,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
  
-  bottomSheet: {
-    borderTopLeftRadius: 16,
-    borderTopRightRadius: 16,
-    position: 'absolute',
-    bottom: 0,
-    width: '100%',
-    zIndex: 50,
-  },
-  content: {
-    padding: 16,
-  },
-  closeButton: {
-    position: 'absolute',
-    top: 10,
-    right: 20,
-  },
-  closeText: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#333',
-  },
-  option: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: '#eee',
-  },
-  optionText: {
-    marginLeft: 16,
-    fontSize: 16,
-    color: '#333',
-  },
 });
 
 

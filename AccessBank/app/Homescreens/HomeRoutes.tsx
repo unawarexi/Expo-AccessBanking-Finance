@@ -6,7 +6,7 @@ const services = [
       icon: 'send',
       color: '#0284c7',
       bg: '#e0f2fe',
-      route: null,
+      route: "/Homescreens/Transfer",
     },
     {
       id: 2,

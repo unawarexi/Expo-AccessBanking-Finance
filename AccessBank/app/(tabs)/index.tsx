@@ -87,7 +87,7 @@ export default function HomeScreen() {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <View style={styles.container}>
         <ScrollView showsVerticalScrollIndicator={false}>
-        <HomeServices />
+        <HomeServices />  
           <PartialCrypto />
           {renderTransactions()}
           <FeaturedComponent />

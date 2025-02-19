@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
 import { Ionicons, FontAwesome } from '@expo/vector-icons';
 import * as Progress from 'react-native-progress';
-import AccountCard from '@/components/AccountCard'; // Assuming you have an AccountCard component
+import AccountCard from '@/components/AccountCard'; 
 import { useRouter } from 'expo-router';
 import ConvertFx from './ConvertFx';
 
@@ -15,10 +15,10 @@ const AccessToAccess = () => {
   const [isButtonEnabled, setIsButtonEnabled] = useState(false);
   const router = useRouter();
 
-  // Function to switch between tabs
+  
   const handleTabSwitch = (tab: React.SetStateAction<string>) => setActiveTab(tab);
 
-  // Function to validate the inputs and enable/disable the Proceed button
+  
   const validateForm = () => {
     if (accountNumber.length === 10 && accountName && amount && description) {
       setIsButtonEnabled(true);
@@ -27,18 +27,18 @@ const AccessToAccess = () => {
     }
   };
 
-  // Limit account number to 10 digits
+  
   const handleAccountNumberChange = (value: string) => {
     if (value.length <= 10) {
       setAccountNumber(value);
-      validateForm(); // Trigger form validation
+      validateForm(); 
     }
   };
 
-  // Update form values and validate each time an input changes
+  
   const handleInputChange = (setter : any) => (value: any) => {
     setter(value);
-    validateForm(); // Trigger form validation
+    validateForm(); 
   };
 
   return (
@@ -163,7 +163,7 @@ const AccessToAccess = () => {
         <TouchableOpacity
           style={[
             styles.proceedButton,
-            { backgroundColor: isButtonEnabled ? '#2563eb' : '#9ca3af' }, // Change color based on validation
+            { backgroundColor: isButtonEnabled ? '#2563eb' : '#9ca3af' }, 
           ]}
           disabled={!isButtonEnabled}
         >
@@ -217,7 +217,7 @@ const styles = StyleSheet.create({
     color: '#1f2937',
   },
   scrollViewContent: {
-    paddingBottom: 20, // Ensure some space at the bottom
+    paddingBottom: 20, 
   },
   progressContainer: {
     flexDirection: 'row',

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
 import { Ionicons, FontAwesome } from '@expo/vector-icons';
 import * as Progress from 'react-native-progress';
-import AccountCard from '@/components/AccountCard'; 
+import AccountCard from '@/components/AccountCard';
 import { useRouter } from 'expo-router';
 import ConvertFx from './ConvertFx';
 
@@ -15,10 +15,8 @@ const AccessToAccess = () => {
   const [isButtonEnabled, setIsButtonEnabled] = useState(false);
   const router = useRouter();
 
-  
   const handleTabSwitch = (tab: React.SetStateAction<string>) => setActiveTab(tab);
 
-  
   const validateForm = () => {
     if (accountNumber.length === 10 && accountName && amount && description) {
       setIsButtonEnabled(true);
@@ -27,25 +25,23 @@ const AccessToAccess = () => {
     }
   };
 
-  
   const handleAccountNumberChange = (value: string) => {
     if (value.length <= 10) {
       setAccountNumber(value);
-      validateForm(); 
+      validateForm();
     }
   };
 
-  
-  const handleInputChange = (setter : any) => (value: any) => {
+  const handleInputChange = (setter: any) => (value: any) => {
     setter(value);
-    validateForm(); 
+    validateForm();
   };
 
   return (
     <View style={styles.container}>
       {/* App Bar */}
       <View style={styles.appBar}>
-        <TouchableOpacity onPress={() => router.back() }>
+        <TouchableOpacity onPress={() => router.back()}>
           <Ionicons name="arrow-back" size={24} color="#fff" />
         </TouchableOpacity>
         <Text style={styles.appBarTitle}>Access Transfers</Text>
@@ -53,25 +49,16 @@ const AccessToAccess = () => {
 
       {/* Tab Bar */}
       <View style={styles.tabBar}>
-        <TouchableOpacity
-          style={[styles.tabButton, activeTab === 'accessAccount' && styles.activeTab]}
-          onPress={() => handleTabSwitch('accessAccount')}
-        >
+        <TouchableOpacity style={[styles.tabButton, activeTab === 'accessAccount' && styles.activeTab]} onPress={() => handleTabSwitch('accessAccount')}>
           <Text style={styles.tabText}>Access Account</Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.tabButton, activeTab === 'convertFx' && styles.activeTab]}
-          onPress={() => handleTabSwitch('convertFx')}
-        >
+        <TouchableOpacity style={[styles.tabButton, activeTab === 'convertFx' && styles.activeTab]} onPress={() => handleTabSwitch('convertFx')}>
           <Text style={styles.tabText}>Convert FX</Text>
         </TouchableOpacity>
       </View>
 
       {/* Scrollable Content with Keyboard Avoidance */}
-      <KeyboardAvoidingView
-        style={{ flex: 1 }}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      >
+      <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
         <ScrollView contentContainerStyle={styles.scrollViewContent} showsVerticalScrollIndicator={false}>
           {activeTab === 'accessAccount' && (
             <>
@@ -108,41 +95,19 @@ const AccessToAccess = () => {
               <View style={styles.formContainer}>
                 <View style={styles.inputContainer}>
                   <FontAwesome name="bank" size={20} color="#9ca3af" style={styles.inputIcon} />
-                  <TextInput
-                    style={styles.input}
-                    placeholder="Account Number"
-                    keyboardType="numeric"
-                    value={accountNumber}
-                    onChangeText={handleAccountNumberChange}
-                  />
+                  <TextInput style={styles.input} placeholder="Account Number" keyboardType="numeric" value={accountNumber} onChangeText={handleAccountNumberChange} />
                 </View>
                 <View style={styles.inputContainer}>
                   <FontAwesome name="user" size={20} color="#9ca3af" style={styles.inputIcon} />
-                  <TextInput
-                    style={styles.input}
-                    placeholder="Account Name"
-                    value={accountName}
-                    onChangeText={handleInputChange(setAccountName)}
-                  />
+                  <TextInput style={styles.input} placeholder="Account Name" value={accountName} onChangeText={handleInputChange(setAccountName)} />
                 </View>
                 <View style={styles.inputContainer}>
                   <FontAwesome name="money" size={20} color="#9ca3af" style={styles.inputIcon} />
-                  <TextInput
-                    style={styles.input}
-                    placeholder="Amount"
-                    keyboardType="numeric"
-                    value={amount}
-                    onChangeText={handleInputChange(setAmount)}
-                  />
+                  <TextInput style={styles.input} placeholder="Amount" keyboardType="numeric" value={amount} onChangeText={handleInputChange(setAmount)} />
                 </View>
                 <View style={styles.inputContainer}>
                   <FontAwesome name="pencil" size={20} color="#9ca3af" style={styles.inputIcon} />
-                  <TextInput
-                    style={styles.input}
-                    placeholder="Transfer Description"
-                    value={description}
-                    onChangeText={handleInputChange(setDescription)}
-                  />
+                  <TextInput style={styles.input} placeholder="Transfer Description" value={description} onChangeText={handleInputChange(setDescription)} />
                 </View>
               </View>
             </>
@@ -152,25 +117,20 @@ const AccessToAccess = () => {
             <View style={styles.convertFxContainer}>
               <Text style={styles.sectionTitle}>Convert FX</Text>
               {/* Add relevant FX form fields here */}
-             <ConvertFx />
+              <ConvertFx />
             </View>
           )}
         </ScrollView>
       </KeyboardAvoidingView>
 
       {/* Proceed Button */}
-      {activeTab === "accessAccount" &&  <View style={styles.proceedButtonContainer}>
-        <TouchableOpacity
-          style={[
-            styles.proceedButton,
-            { backgroundColor: isButtonEnabled ? '#2563eb' : '#9ca3af' }, 
-          ]}
-          disabled={!isButtonEnabled}
-        >
-          <Text style={styles.proceedButtonText}>Proceed</Text>
-        </TouchableOpacity>
-      </View>}
-      
+      {activeTab === 'accessAccount' && (
+        <View style={styles.proceedButtonContainer}>
+          <TouchableOpacity style={[styles.proceedButton, { backgroundColor: isButtonEnabled ? '#2563eb' : '#9ca3af' }]} disabled={!isButtonEnabled}>
+            <Text style={styles.proceedButtonText}>Proceed</Text>
+          </TouchableOpacity>
+        </View>
+      )}
     </View>
   );
 };
@@ -178,138 +138,29 @@ const AccessToAccess = () => {
 export default AccessToAccess;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f8fafc',
-  },
-  appBar: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#2563eb',
-    paddingVertical: 15,
-    paddingHorizontal: 20,
-    marginTop: 40,
-  },
-  appBarTitle: {
-    color: '#fff',
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginLeft: 15,
-  },
-  tabBar: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    backgroundColor: '#fff',
-    borderBottomWidth: 1,
-    borderBottomColor: '#e5e7eb',
-  },
-  tabButton: {
-    paddingVertical: 15,
-    width: '50%',
-    alignItems: 'center',
-  },
-  activeTab: {
-    borderBottomWidth: 2,
-    borderBottomColor: '#2563eb',
-  },
-  tabText: {
-    fontSize: 16,
-    color: '#1f2937',
-  },
-  scrollViewContent: {
-    paddingBottom: 20, 
-  },
-  progressContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    backgroundColor: '#fff',
-  },
-  limitText: {
-    color: '#1f2937',
-    fontSize: 14,
-  },
-  upgradeText: {
-    color: '#2563eb',
-    fontSize: 14,
-  },
-  progressBar: {
-    marginHorizontal: 20,
-    marginBottom: 10,
-  },
-  amountContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingBottom: 10,
-  },
-  amountText: {
-    color: '#1f2937',
-  },
-  beneficiaryContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    backgroundColor: '#fff',
-  },
-  beneficiaryText: {
-    color: '#1f2937',
-  },
-  findText: {
-    color: '#2563eb',
-  },
-  inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginVertical: 10,
-    marginHorizontal: 20,
-    borderWidth: 1,
-    borderColor: '#e5e7eb',
-    borderRadius: 8,
-    paddingHorizontal: 10,
-    paddingVertical: 12,
-    backgroundColor: '#fff',
-  },
-  inputIcon: {
-    marginRight: 10,
-  },
-  input: {
-    flex: 1,
-    fontSize: 16,
-    color: '#1f2937',
-  },
-  formContainer: {
-    marginTop: 20,
-  },
-  convertFxContainer: {
-    padding: 20,
-  },
-  sectionTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 10,
-    color: '#1f2937',
-  },
-  fxText: {
-    fontSize: 16,
-    color: '#64748b',
-  },
-  proceedButtonContainer: {
-    padding: 20,
-    backgroundColor: '#fff',
-    borderTopWidth: 1,
-    borderTopColor: '#e5e7eb',
-  },
-  proceedButton: {
-    paddingVertical: 15,
-    borderRadius: 8,
-    alignItems: 'center',
-  },
-  proceedButtonText: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
+  container: { flex: 1, backgroundColor: '#f8fafc' },
+  appBar: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#2563eb', paddingVertical: 15, paddingHorizontal: 20, marginTop: 40 },
+  appBarTitle: { color: '#fff', fontSize: 18, fontWeight: 'bold', marginLeft: 15 },
+  tabBar: { flexDirection: 'row', justifyContent: 'space-around', backgroundColor: '#fff', borderBottomWidth: 1, borderBottomColor: '#e5e7eb' },
+  tabButton: { paddingVertical: 15, width: '50%', alignItems: 'center' },
+  activeTab: { borderBottomWidth: 2, borderBottomColor: '#2563eb' },
+  tabText: { fontSize: 16, color: '#1f2937' },
+  scrollViewContent: { paddingBottom: 20 },
+  progressContainer: { flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 20, paddingVertical: 10, backgroundColor: '#fff' },
+  limitText: { color: '#1f2937', fontSize: 14 },
+  upgradeText: { color: '#2563eb', fontSize: 14 }, 
+  progressBar: { marginHorizontal: 20, marginBottom: 10 }, 
+  amountContainer: { flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 20, paddingBottom: 10 }, 
+  amountText: { color: '#1f2937' }, 
+  beneficiaryContainer: { flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 20, paddingVertical: 10, backgroundColor: '#fff' }, beneficiaryText: { color: '#1f2937' }, 
+  findText: { color: '#2563eb' }, 
+  inputContainer: { flexDirection: 'row', alignItems: 'center', marginVertical: 10, marginHorizontal: 20, borderWidth: 1, borderColor: '#e5e7eb', borderRadius: 8, paddingHorizontal: 10, paddingVertical: 12, backgroundColor: '#fff' }, 
+  inputIcon: { marginRight: 10 }, input: { flex: 1, fontSize: 16, color: '#1f2937' }, 
+  formContainer: { marginTop: 20 }, 
+  convertFxContainer: { padding: 20 }, 
+  sectionTitle: { fontSize: 18, fontWeight: 'bold', marginBottom: 10, color: '#1f2937' }, 
+  fxText: { fontSize: 16, color: '#64748b' }, 
+  proceedButtonContainer: { padding: 20, backgroundColor: '#fff', borderTopWidth: 1, borderTopColor: '#e5e7eb' }, 
+  proceedButton: { paddingVertical: 15, borderRadius: 8, alignItems: 'center' }, 
+  proceedButtonText: { color: '#fff', fontSize: 16, fontWeight: 'bold' }
 });

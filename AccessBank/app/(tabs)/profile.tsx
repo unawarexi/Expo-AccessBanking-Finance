@@ -9,8 +9,8 @@ export default function ProfileScreen() {
         { icon: 'person', label: 'Personal Information', route: '/profile/personal' },
         { icon: 'shield-checkmark', label: 'Security', route: '/profile/security' },
         { icon: 'notifications', label: 'Notifications', route: '/profile/notifications' },
-        { icon: 'language', label: 'Language', route: '/profile/language' },
-      ],
+        { icon: 'language', label: 'Language', route: '/profile/language' }
+      ]
     },
     {
       title: 'Banking Preferences',
@@ -18,8 +18,8 @@ export default function ProfileScreen() {
         { icon: 'card', label: 'Payment Methods', route: '/profile/payments' },
         { icon: 'wallet', label: 'Account Limits', route: '/profile/limits' },
         { icon: 'document-text', label: 'Statements', route: '/profile/statements' },
-        { icon: 'analytics', label: 'Reports', route: '/profile/reports' },
-      ],
+        { icon: 'analytics', label: 'Reports', route: '/profile/reports' }
+      ]
     },
     {
       title: 'Support',
@@ -27,19 +27,16 @@ export default function ProfileScreen() {
         { icon: 'help-circle', label: 'Help Center', route: '/profile/help' },
         { icon: 'chatbubble-ellipses', label: 'Contact Us', route: '/profile/contact' },
         { icon: 'document', label: 'Terms & Conditions', route: '/profile/terms' },
-        { icon: 'shield', label: 'Privacy Policy', route: '/profile/privacy' },
-      ],
-    },
+        { icon: 'shield', label: 'Privacy Policy', route: '/profile/privacy' }
+      ]
+    }
   ];
 
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
         <View style={styles.profileInfo}>
-          <Image
-            source={{ uri: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400' }}
-            style={styles.profileImage}
-          />
+          <Image source={{ uri: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400' }} style={styles.profileImage} />
           <View style={styles.profileText}>
             <Text style={styles.name}>John Doe</Text>
             <Text style={styles.email}>john.doe@example.com</Text>
@@ -97,7 +94,7 @@ export default function ProfileScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8fafc',
+    backgroundColor: '#f8fafc'
   },
   header: {
     flexDirection: 'row',
@@ -105,30 +102,30 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 20,
     paddingTop: 60,
-    backgroundColor: '#fff',
+    backgroundColor: '#fff'
   },
   profileInfo: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   profileImage: {
     width: 60,
     height: 60,
     borderRadius: 30,
-    marginRight: 16,
+    marginRight: 16
   },
   profileText: {
-    flex: 1,
+    flex: 1
   },
   name: {
     fontSize: 20,
     fontWeight: '700',
-    color: '#1f2937',
+    color: '#1f2937'
   },
   email: {
     fontSize: 14,
     color: '#64748b',
-    marginTop: 4,
+    marginTop: 4
   },
   editButton: {
     width: 40,
@@ -136,47 +133,47 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: '#eff6ff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   quickStats: {
     flexDirection: 'row',
     backgroundColor: '#fff',
     padding: 20,
-    marginTop: 1,
+    marginTop: 1
   },
   statItem: {
     flex: 1,
-    alignItems: 'center',
+    alignItems: 'center'
   },
   statValue: {
     fontSize: 24,
     fontWeight: '700',
-    color: '#2563eb',
+    color: '#2563eb'
   },
   statLabel: {
     fontSize: 12,
     color: '#64748b',
-    marginTop: 4,
+    marginTop: 4
   },
   statDivider: {
     width: 1,
     height: '100%',
-    backgroundColor: '#e2e8f0',
+    backgroundColor: '#e2e8f0'
   },
   section: {
     marginTop: 24,
-    paddingHorizontal: 20,
+    paddingHorizontal: 20
   },
   sectionTitle: {
     fontSize: 18,
     fontWeight: '600',
     color: '#1f2937',
-    marginBottom: 16,
+    marginBottom: 16
   },
   sectionContent: {
     backgroundColor: '#fff',
     borderRadius: 16,
-    overflow: 'hidden',
+    overflow: 'hidden'
   },
   menuItem: {
     flexDirection: 'row',
@@ -184,11 +181,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     padding: 16,
     borderBottomWidth: 1,
-    borderBottomColor: '#f1f5f9',
+    borderBottomColor: '#f1f5f9'
   },
   menuItemLeft: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   menuItemIcon: {
     width: 36,
@@ -197,11 +194,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#eff6ff',
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: 12,
+    marginRight: 12
   },
   menuItemLabel: {
     fontSize: 16,
-    color: '#1f2937',
+    color: '#1f2937'
   },
   logoutButton: {
     flexDirection: 'row',
@@ -212,12 +209,12 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     marginBottom: 40,
     padding: 16,
-    borderRadius: 16,
+    borderRadius: 16
   },
   logoutText: {
     fontSize: 16,
     fontWeight: '600',
     color: '#ef4444',
-    marginLeft: 8,
-  },
+    marginLeft: 8
+  }
 });

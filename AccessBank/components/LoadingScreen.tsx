@@ -15,14 +15,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F0F8FF',
+    backgroundColor: '#F0F8FF'
   },
   loadingText: {
     fontSize: 16,
     color: '#333',
     fontWeight: 'bold',
-    marginTop: 20,
-  },
+    marginTop: 20
+  }
 });
 
 export default LoadingScreen;

@@ -39,9 +39,9 @@ export default function ScanScreen() {
       <View style={styles.recentScans}>
         <Text style={styles.recentTitle}>Recent Sc ans</Text>
         {[
-          { name: 'Coffee Shop', amount: 8.50, time: '2 hours ago' },
+          { name: 'Coffee Shop', amount: 8.5, time: '2 hours ago' },
           { name: 'Grocery Store', amount: 45.99, time: 'Yesterday' },
-          { name: 'Restaurant', amount: 32.40, time: '2 days ago' },
+          { name: 'Restaurant', amount: 32.4, time: '2 days ago' }
         ].map((scan, index) => (
           <TouchableOpacity key={index} style={styles.scanItem}>
             <View style={styles.scanIcon}>
@@ -68,19 +68,19 @@ export default function ScanScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8fafc',
+    backgroundColor: '#f8fafc'
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: 20,
-    paddingTop: 60,
+    paddingTop: 60
   },
   title: {
     fontSize: 28,
     fontWeight: '700',
-    color: '#1f2937',
+    color: '#1f2937'
   },
   historyButton: {
     width: 40,
@@ -88,57 +88,57 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: '#eff6ff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   scanArea: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    maxHeight: 400,
+    maxHeight: 400
   },
   scanFrame: {
     width: 280,
     height: 280,
-    position: 'relative',
+    position: 'relative'
   },
   scanCorner: {
     position: 'absolute',
     width: 40,
     height: 40,
     borderColor: '#2563eb',
-    borderWidth: 4,
+    borderWidth: 4
   },
   topRight: {
     top: 0,
     right: 0,
     borderLeftWidth: 0,
-    borderBottomWidth: 0,
+    borderBottomWidth: 0
   },
   bottomLeft: {
     bottom: 0,
     left: 0,
     borderRightWidth: 0,
-    borderTopWidth: 0,
+    borderTopWidth: 0
   },
   bottomRight: {
     bottom: 0,
     right: 0,
     borderLeftWidth: 0,
-    borderTopWidth: 0,
+    borderTopWidth: 0
   },
   scanText: {
     fontSize: 16,
     color: '#64748b',
-    marginTop: 24,
+    marginTop: 24
   },
   actions: {
     flexDirection: 'row',
     justifyContent: 'center',
-    padding: 20,
+    padding: 20
   },
   actionButton: {
     alignItems: 'center',
-    marginHorizontal: 20,
+    marginHorizontal: 20
   },
   actionIcon: {
     width: 60,
@@ -146,20 +146,20 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 8,
+    marginBottom: 8
   },
   actionText: {
     fontSize: 14,
-    color: '#64748b',
+    color: '#64748b'
   },
   recentScans: {
-    padding: 20,
+    padding: 20
   },
   recentTitle: {
     fontSize: 18,
     fontWeight: '600',
     color: '#1f2937',
-    marginBottom: 16,
+    marginBottom: 16
   },
   scanItem: {
     flexDirection: 'row',
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     padding: 16,
     borderRadius: 12,
-    marginBottom: 12,
+    marginBottom: 12
   },
   scanIcon: {
     width: 48,
@@ -176,29 +176,29 @@ const styles = StyleSheet.create({
     backgroundColor: '#f1f5f9',
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: 16,
+    marginRight: 16
   },
   scanInfo: {
-    flex: 1,
+    flex: 1
   },
   scanName: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#1f2937',
+    color: '#1f2937'
   },
   scanTime: {
     fontSize: 14,
     color: '#64748b',
-    marginTop: 4,
+    marginTop: 4
   },
   scanAmount: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#1f2937',
+    color: '#1f2937'
   },
   footer: {
     padding: 20,
-    alignItems: 'center',
+    alignItems: 'center'
   },
   flashButton: {
     width: 60,
@@ -211,6 +211,6 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 8,
-    elevation: 3,
-  },
+    elevation: 3
+  }
 });

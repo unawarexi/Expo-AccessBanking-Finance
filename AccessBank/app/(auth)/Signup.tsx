@@ -19,7 +19,7 @@ export default function SignupScreen() {
     confirmPassword: '',
     ssn: '', // Social Security Number
     employmentStatus: '',
-    annualIncome: '',
+    annualIncome: ''
   });
 
   const [showPassword, setShowPassword] = useState(false);
@@ -33,14 +33,7 @@ export default function SignupScreen() {
   const renderStepIndicator = () => (
     <View style={styles.stepIndicator}>
       {Array.from({ length: totalSteps }).map((_, index) => (
-        <View
-          key={index}
-          style={[
-            styles.stepDot,
-            index + 1 === currentStep && styles.stepDotActive,
-            index + 1 < currentStep && styles.stepDotCompleted,
-          ]}
-        />
+        <View key={index} style={[styles.stepDot, index + 1 === currentStep && styles.stepDotActive, index + 1 < currentStep && styles.stepDotCompleted]} />
       ))}
     </View>
   );
@@ -55,7 +48,7 @@ export default function SignupScreen() {
           placeholder="First Name"
           placeholderTextColor="#FFFFFF80"
           value={formData.firstName}
-          onChangeText={(value) => updateFormData('firstName', value)}
+          onChangeText={value => updateFormData('firstName', value)}
         />
       </View>
 
@@ -66,7 +59,7 @@ export default function SignupScreen() {
           placeholder="Last Name"
           placeholderTextColor="#FFFFFF80"
           value={formData.lastName}
-          onChangeText={(value) => updateFormData('lastName', value)}
+          onChangeText={value => updateFormData('lastName', value)}
         />
       </View>
 
@@ -77,7 +70,7 @@ export default function SignupScreen() {
           placeholder="Email"
           placeholderTextColor="#FFFFFF80"
           value={formData.email}
-          onChangeText={(value) => updateFormData('email', value)}
+          onChangeText={value => updateFormData('email', value)}
           keyboardType="email-address"
           autoCapitalize="none"
         />
@@ -90,7 +83,7 @@ export default function SignupScreen() {
           placeholder="Phone Number"
           placeholderTextColor="#FFFFFF80"
           value={formData.phone}
-          onChangeText={(value) => updateFormData('phone', value)}
+          onChangeText={value => updateFormData('phone', value)}
           keyboardType="phone-pad"
         />
       </View>
@@ -102,35 +95,17 @@ export default function SignupScreen() {
       <Text style={styles.stepTitle}>Address & Identity</Text>
       <View style={styles.inputContainer}>
         <Ionicons name="home-outline" size={20} color="#FFFFFF" style={styles.inputIcon} />
-        <TextInput
-          style={styles.input}
-          placeholder="Address"
-          placeholderTextColor="#FFFFFF80"
-          value={formData.address}
-          onChangeText={(value) => updateFormData('address', value)}
-        />
+        <TextInput style={styles.input} placeholder="Address" placeholderTextColor="#FFFFFF80" value={formData.address} onChangeText={value => updateFormData('address', value)} />
       </View>
 
       <View style={styles.inputContainer}>
         <Ionicons name="business-outline" size={20} color="#FFFFFF" style={styles.inputIcon} />
-        <TextInput
-          style={styles.input}
-          placeholder="City"
-          placeholderTextColor="#FFFFFF80"
-          value={formData.city}
-          onChangeText={(value) => updateFormData('city', value)}
-        />
+        <TextInput style={styles.input} placeholder="City" placeholderTextColor="#FFFFFF80" value={formData.city} onChangeText={value => updateFormData('city', value)} />
       </View>
 
       <View style={styles.inputContainer}>
         <Ionicons name="globe-outline" size={20} color="#FFFFFF" style={styles.inputIcon} />
-        <TextInput
-          style={styles.input}
-          placeholder="Country"
-          placeholderTextColor="#FFFFFF80"
-          value={formData.country}
-          onChangeText={(value) => updateFormData('country', value)}
-        />
+        <TextInput style={styles.input} placeholder="Country" placeholderTextColor="#FFFFFF80" value={formData.country} onChangeText={value => updateFormData('country', value)} />
       </View>
 
       <View style={styles.inputContainer}>
@@ -140,7 +115,7 @@ export default function SignupScreen() {
           placeholder="Social Security Number"
           placeholderTextColor="#FFFFFF80"
           value={formData.ssn}
-          onChangeText={(value) => updateFormData('ssn', value)}
+          onChangeText={value => updateFormData('ssn', value)}
           keyboardType="number-pad"
         />
       </View>
@@ -157,7 +132,7 @@ export default function SignupScreen() {
           placeholder="Employment Status"
           placeholderTextColor="#FFFFFF80"
           value={formData.employmentStatus}
-          onChangeText={(value) => updateFormData('employmentStatus', value)}
+          onChangeText={value => updateFormData('employmentStatus', value)}
         />
       </View>
 
@@ -168,7 +143,7 @@ export default function SignupScreen() {
           placeholder="Annual Income"
           placeholderTextColor="#FFFFFF80"
           value={formData.annualIncome}
-          onChangeText={(value) => updateFormData('annualIncome', value)}
+          onChangeText={value => updateFormData('annualIncome', value)}
           keyboardType="number-pad"
         />
       </View>
@@ -180,15 +155,11 @@ export default function SignupScreen() {
           placeholder="Password"
           placeholderTextColor="#FFFFFF80"
           value={formData.password}
-          onChangeText={(value) => updateFormData('password', value)}
+          onChangeText={value => updateFormData('password', value)}
           secureTextEntry={!showPassword}
         />
         <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
-          <Ionicons
-            name={showPassword ? "eye-off-outline" : "eye-outline"}
-            size={20}
-            color="#FFFFFF"
-          />
+          <Ionicons name={showPassword ? 'eye-off-outline' : 'eye-outline'} size={20} color="#FFFFFF" />
         </TouchableOpacity>
       </View>
 
@@ -199,7 +170,7 @@ export default function SignupScreen() {
           placeholder="Confirm Password"
           placeholderTextColor="#FFFFFF80"
           value={formData.confirmPassword}
-          onChangeText={(value) => updateFormData('confirmPassword', value)}
+          onChangeText={value => updateFormData('confirmPassword', value)}
           secureTextEntry={!showPassword}
         />
       </View>
@@ -208,10 +179,7 @@ export default function SignupScreen() {
 
   return (
     <LinearGradient colors={['#0A0F24', '#1A1B4B']} style={styles.container}>
-      <KeyboardAwareScrollView
-        contentContainerStyle={styles.scrollContent}
-        keyboardShouldPersistTaps="handled"
-      >
+      <KeyboardAwareScrollView contentContainerStyle={styles.scrollContent} keyboardShouldPersistTaps="handled">
         <View style={styles.header}>
           <Text style={styles.title}>Create Account</Text>
           <Text style={styles.subtitle}>Join our secure banking platform</Text>
@@ -226,19 +194,13 @@ export default function SignupScreen() {
 
           <View style={styles.buttonContainer}>
             {currentStep > 1 && (
-              <TouchableOpacity
-                style={[styles.button, styles.secondaryButton]}
-                onPress={() => setCurrentStep(prev => prev - 1)}
-              >
+              <TouchableOpacity style={[styles.button, styles.secondaryButton]} onPress={() => setCurrentStep(prev => prev - 1)}>
                 <Text style={[styles.buttonText, styles.secondaryButtonText]}>Previous</Text>
               </TouchableOpacity>
             )}
 
             <TouchableOpacity
-              style={[
-                styles.button,
-                currentStep > 1 && { flex: 1, marginLeft: 12 }
-              ]}
+              style={[styles.button, currentStep > 1 && { flex: 1, marginLeft: 12 }]}
               onPress={() => {
                 if (currentStep < totalSteps) {
                   setCurrentStep(prev => prev + 1);
@@ -247,9 +209,7 @@ export default function SignupScreen() {
                 }
               }}
             >
-              <Text style={styles.buttonText}>
-                {currentStep === totalSteps ? 'Create Account' : 'Next'}
-              </Text>
+              <Text style={styles.buttonText}>{currentStep === totalSteps ? 'Create Account' : 'Next'}</Text>
             </TouchableOpacity>
           </View>
 
@@ -269,56 +229,56 @@ export default function SignupScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
   },
   scrollContent: {
     flexGrow: 1,
-    padding: 20,
+    padding: 20
   },
   header: {
     marginTop: Platform.OS === 'ios' ? 60 : 40,
-    marginBottom: 40,
+    marginBottom: 40
   },
   title: {
     fontSize: 32,
     fontFamily: 'Poppins-Bold',
     color: '#FFFFFF',
-    marginBottom: 8,
+    marginBottom: 8
   },
   subtitle: {
     fontSize: 16,
     fontFamily: 'Poppins-Regular',
     color: '#FFFFFF',
-    opacity: 0.8,
+    opacity: 0.8
   },
   stepTitle: {
     fontSize: 20,
     fontFamily: 'Poppins-SemiBold',
     color: '#FFFFFF',
-    marginBottom: 20,
+    marginBottom: 20
   },
   stepIndicator: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 30,
+    marginBottom: 30
   },
   stepDot: {
     width: 8,
     height: 8,
     borderRadius: 4,
     backgroundColor: 'rgba(255, 255, 255, 0.3)',
-    marginHorizontal: 4,
+    marginHorizontal: 4
   },
   stepDotActive: {
     backgroundColor: '#FFFFFF',
-    width: 20,
+    width: 20
   },
   stepDotCompleted: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#FFFFFF'
   },
   form: {
-    marginTop: 20,
+    marginTop: 20
   },
   inputContainer: {
     flexDirection: 'row',
@@ -327,55 +287,55 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     marginBottom: 16,
     paddingHorizontal: 16,
-    height: 56,
+    height: 56
   },
   inputIcon: {
-    marginRight: 12,
+    marginRight: 12
   },
   input: {
     flex: 1,
     color: '#FFFFFF',
     fontSize: 16,
-    fontFamily: 'Poppins-Regular',
+    fontFamily: 'Poppins-Regular'
   },
   buttonContainer: {
     flexDirection: 'row',
     marginTop: 24,
-    marginBottom: 24,
+    marginBottom: 24
   },
   button: {
     backgroundColor: '#FFFFFF',
     paddingVertical: 16,
     borderRadius: 12,
     alignItems: 'center',
-    flex: 1,
+    flex: 1
   },
   secondaryButton: {
     backgroundColor: 'transparent',
     borderWidth: 1,
-    borderColor: '#FFFFFF',
+    borderColor: '#FFFFFF'
   },
   buttonText: {
     fontSize: 18,
     fontFamily: 'Poppins-SemiBold',
-    color: '#0A0F24',
+    color: '#0A0F24'
   },
   secondaryButtonText: {
-    color: '#FFFFFF',
+    color: '#FFFFFF'
   },
   footer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   footerText: {
     color: '#FFFFFF',
     fontSize: 14,
-    fontFamily: 'Poppins-Regular',
+    fontFamily: 'Poppins-Regular'
   },
   loginText: {
     color: '#FFFFFF',
     fontSize: 14,
-    fontFamily: 'Poppins-SemiBold',
-  },
+    fontFamily: 'Poppins-SemiBold'
+  }
 });

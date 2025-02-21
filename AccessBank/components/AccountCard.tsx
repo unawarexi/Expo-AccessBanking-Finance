@@ -18,28 +18,22 @@ const AccountCard = () => {
   };
 
   return (
-    <LinearGradient
-      colors={['#0f172a', '#0284c7']}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
-      style={styles.cardContainer}
-    >
+    <LinearGradient colors={['#0f172a', '#0284c7']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={styles.cardContainer}>
       {/* Account Details */}
       <View style={styles.infoContainer}>
         <View style={styles.leftSection}>
           <Text style={styles.accountNumber}>0098 5737 8550 1337</Text>
-          <Text style={{flexDirection: "row",}}> <Text style={styles.accountType}>Savings Account - </Text>
-          <Text style={styles.accountStatus}>Regular</Text></Text>
+          <Text style={{ flexDirection: 'row' }}>
+            {' '}
+            <Text style={styles.accountType}>Savings Account - </Text>
+            <Text style={styles.accountStatus}>Regular</Text>
+          </Text>
         </View>
 
         {/* Toggle Visibility */}
         <View style={styles.rightSection}>
           <TouchableOpacity onPress={toggleBalanceVisibility}>
-            <Ionicons
-              name={balanceVisible ? 'eye' : 'eye-off'}
-              size={24}
-              color="#fff"
-            />
+            <Ionicons name={balanceVisible ? 'eye' : 'eye-off'} size={24} color="#fff" />
           </TouchableOpacity>
         </View>
       </View>
@@ -47,9 +41,7 @@ const AccountCard = () => {
       {/* Account Balance */}
       <View style={styles.balanceContainer}>
         <Text style={styles.balanceLabel}>Balance</Text>
-        <Text style={styles.balanceAmount}>
-          {balanceVisible ? '$12,345.67' : '****'}
-        </Text>
+        <Text style={styles.balanceAmount}>{balanceVisible ? '$12,345.67' : '****'}</Text>
       </View>
 
       {/* Share Icon */}
@@ -73,51 +65,51 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.1,
     shadowRadius: 8,
-    elevation: 5,
+    elevation: 5
   },
   infoContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   leftSection: {
-    flexDirection: 'column',
+    flexDirection: 'column'
   },
   accountNumber: {
     fontSize: 16, // Increased account number size
     color: '#e2e8f0',
     fontWeight: 'bold',
-    marginBottom: 4,
+    marginBottom: 4
   },
   accountType: {
     fontSize: 14,
     color: '#f1f5f9',
-    marginBottom: 4,
+    marginBottom: 4
   },
   accountStatus: {
     fontSize: 14,
-    color: '#94a3b8',
+    color: '#94a3b8'
   },
   rightSection: {
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   balanceContainer: {
-    marginTop: 16, // Reduced vertical spacing
+    marginTop: 16 // Reduced vertical spacing
   },
   balanceLabel: {
     fontSize: 16,
-    color: '#f1f5f9',
+    color: '#f1f5f9'
   },
   balanceAmount: {
     fontSize: 24, // Slightly reduced balance font size
     fontWeight: 'bold',
     color: '#fff',
-    marginTop: 4,
+    marginTop: 4
   },
   shareContainer: {
     marginTop: 8, // Reduced spacing between balance and share icon
     flexDirection: 'row',
-    justifyContent: 'flex-start',
-  },
+    justifyContent: 'flex-start'
+  }
 });

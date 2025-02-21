@@ -58,7 +58,7 @@ const ConvertFx = () => {
     } else if (newRate < previousRate) {
       setRateChange('red'); // Loss
     } else {
-      setRateChange('neutral'); // No change
+      setRateChange('neutral'); 
     }
 
     setConversionRate(newRate);
@@ -90,8 +90,8 @@ const ConvertFx = () => {
           {/* From Currency */}
           <View style={styles.currencyPicker}>
             <Text style={styles.label}>From Currency</Text>
-            <Picker selectedValue={fromCurrency} onValueChange={(itemValue) => setFromCurrency(itemValue)} style={styles.picker}>
-              {Object.keys(conversionRates).map((currency) => (
+            <Picker selectedValue={fromCurrency} onValueChange={itemValue => setFromCurrency(itemValue)} style={styles.picker}>
+              {Object.keys(conversionRates).map(currency => (
                 <Picker.Item key={currency} label={currency} value={currency} />
               ))}
             </Picker>
@@ -106,7 +106,7 @@ const ConvertFx = () => {
           <View style={styles.currencyPicker}>
             <Text style={styles.label}>To Currency</Text>
             <Picker selectedValue={toCurrency} onValueChange={handleCurrencyChange} style={styles.picker}>
-              {Object.keys(conversionRates).map((currency) => (
+              {Object.keys(conversionRates).map(currency => (
                 <Picker.Item key={currency} label={currency} value={currency} />
               ))}
             </Picker>
@@ -174,5 +174,5 @@ const styles = StyleSheet.create({
   neutralRate: { color: '#64748b', fontSize: 16 },
   lastUpdateText: { fontSize: 12, color: '#64748b', marginBottom: 10 },
   transferButton: { padding: 16, borderRadius: 8, alignItems: 'center' },
-  transferButtonText: { color: '#fff', fontSize: 16, fontWeight: 'bold' },
+  transferButtonText: { color: '#fff', fontSize: 16, fontWeight: 'bold' }
 });

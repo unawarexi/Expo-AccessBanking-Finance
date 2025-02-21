@@ -6,7 +6,7 @@ const services = [
       icon: 'send',
       color: '#0284c7',
       bg: '#e0f2fe',
-      route: "/Homescreens/Transfer",
+      route: '/Homescreens/Transfer'
     },
     {
       id: 2,
@@ -14,7 +14,7 @@ const services = [
       icon: 'receipt',
       color: '#16a34a',
       bg: '#dcfce7',
-      route: '/bills',
+      route: '/bills'
     },
     {
       id: 3,
@@ -22,7 +22,7 @@ const services = [
       icon: 'phone-portrait',
       color: '#d97706',
       bg: '#fef3c7',
-      route: '/topup',
+      route: '/topup'
     },
     {
       id: 4,
@@ -30,8 +30,8 @@ const services = [
       icon: 'globe',
       color: '#0ea5e9',
       bg: '#e0f2fe',
-      route: '/international-transfers',
-    },
+      route: '/international-transfers'
+    }
   ],
   [
     {
@@ -40,7 +40,7 @@ const services = [
       icon: 'trending-up',
       color: '#7c3aed',
       bg: '#f3e8ff',
-      route: '/investments',
+      route: '/investments'
     },
     {
       id: 6,
@@ -48,7 +48,7 @@ const services = [
       icon: 'cash',
       color: '#e11d48',
       bg: '#ffe4e6',
-      route: '/loans',
+      route: '/loans'
     },
     {
       id: 7,
@@ -56,7 +56,7 @@ const services = [
       icon: 'shield-checkmark',
       color: '#0891b2',
       bg: '#cffafe',
-      route: '/insurance',
+      route: '/insurance'
     },
     {
       id: 8,
@@ -64,8 +64,8 @@ const services = [
       icon: 'pricetag',
       color: '#f59e0b',
       bg: '#fef3c7',
-      route: '/vouchers',
-    },
+      route: '/vouchers'
+    }
   ],
   [
     {
@@ -74,7 +74,7 @@ const services = [
       icon: 'card',
       color: '#c2410c',
       bg: '#ffedd5',
-      route: '/cards',
+      route: '/cards'
     },
     {
       id: 10,
@@ -82,7 +82,7 @@ const services = [
       icon: 'wallet',
       color: '#4f46e5',
       bg: '#e0e7ff',
-      route: '/savings',
+      route: '/savings'
     },
     {
       id: 11,
@@ -90,7 +90,7 @@ const services = [
       icon: 'wallet',
       color: '#0f766e',
       bg: '#ccfbf1',
-      route: '/wallet-funding',
+      route: '/wallet-funding'
     },
     {
       id: 12,
@@ -98,8 +98,8 @@ const services = [
       icon: 'flash',
       color: '#f43f5e',
       bg: '#fee2e2',
-      route: '/utilities',
-    },
+      route: '/utilities'
+    }
   ],
   [
     {
@@ -108,7 +108,7 @@ const services = [
       icon: 'help-circle',
       color: '#3b82f6',
       bg: '#dbeafe',
-      route: '/help-support',
+      route: '/help-support'
     },
     {
       id: 14,
@@ -116,7 +116,7 @@ const services = [
       icon: 'settings',
       color: '#6b7280',
       bg: '#f3f4f6',
-      route: '/settings',
+      route: '/settings'
     },
     {
       id: 15,
@@ -124,7 +124,7 @@ const services = [
       icon: 'notifications',
       color: '#eab308',
       bg: '#fef9c3',
-      route: '/notifications',
+      route: '/notifications'
     },
     {
       id: 9,
@@ -132,9 +132,9 @@ const services = [
       icon: 'grid',
       color: '#475569',
       bg: '#f1f5f9',
-      route: '/Homescreens/MoreOptions',
-    },
-  ],
+      route: '/Homescreens/MoreOptions'
+    }
+  ]
 ];
 
 export default services;

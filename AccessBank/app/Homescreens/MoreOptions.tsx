@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, ScrollView, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import { FontAwesome, MaterialIcons } from '@expo/vector-icons'; 
+import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
 import categories from '@/data/MoreCategory';
 
 const MoreOptionScreen = () => {
@@ -23,28 +23,21 @@ const MoreOptionScreen = () => {
       <ScrollView contentContainerStyle={styles.scrollableContainer} showsVerticalScrollIndicator={false}>
         {categories.map((category, index) => (
           <View key={index} style={styles.categoryContainer}>
-            <TouchableOpacity
-              onPress={() => toggleCategory(category.title)}
-              style={styles.categoryHeader}
-            >
+            <TouchableOpacity onPress={() => toggleCategory(category.title)} style={styles.categoryHeader}>
               <View style={styles.categoryHeaderText}>
                 {category.icon}
                 <Text style={styles.categoryTitle}>{category.title}</Text>
               </View>
               <View
                 style={{
-                  backgroundColor: 'white', 
-                  borderRadius: 50, 
-                  padding: 8, 
-                  justifyContent: 'center', 
-                  alignItems: 'center', 
+                  backgroundColor: 'white',
+                  borderRadius: 50,
+                  padding: 8,
+                  justifyContent: 'center',
+                  alignItems: 'center'
                 }}
               >
-                <MaterialIcons
-                  name="keyboard-arrow-down"
-                  size={24}
-                  color={activeCategory === category.title ? 'blue' : 'black'}
-                />
+                <MaterialIcons name="keyboard-arrow-down" size={24} color={activeCategory === category.title ? 'blue' : 'black'} />
               </View>
             </TouchableOpacity>
 
@@ -70,8 +63,6 @@ const MoreOptionScreen = () => {
   );
 };
 
-
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -80,7 +71,7 @@ const styles = StyleSheet.create({
     padding: 16
   },
   searchContainer: {
-    marginBottom: 16,
+    marginBottom: 16
   },
   searchInputContainer: {
     flexDirection: 'row',
@@ -89,53 +80,53 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 8,
     borderRadius: 8,
-    backgroundColor: '#F3F4F6',
+    backgroundColor: '#F3F4F6'
   },
   searchInput: {
     marginLeft: 8,
     flex: 1,
-    fontSize: 18,
+    fontSize: 18
   },
   scrollableContainer: {
-    paddingBottom: 16, // Space at the bottom of the ScrollView
+    paddingBottom: 16 // Space at the bottom of the ScrollView
   },
   categoryContainer: {
     marginBottom: 16,
     backgroundColor: '#E2E8F0',
     borderRadius: 16,
-    padding: 10,
+    padding: 10
   },
   categoryHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   categoryHeaderText: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   categoryTitle: {
     fontSize: 14,
-    marginLeft: 16,
+    marginLeft: 16
   },
   subOptionsContainer: {
     marginTop: 16,
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   },
   subOption: {
     alignItems: 'center',
     padding: 16,
     backgroundColor: '#F3F4F6',
     borderRadius: 8,
-    width: '23%', 
+    width: '23%',
     marginBottom: 16,
-    marginHorizontal: '1%',
+    marginHorizontal: '1%'
   },
   subOptionText: {
     marginTop: 8,
-    fontSize: 10,
+    fontSize: 10
   },
   logoutButton: {
     backgroundColor: '#EF4444',
@@ -144,13 +135,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 16,
+    marginTop: 16
   },
   logoutText: {
     color: 'white',
     fontSize: 18,
-    marginLeft: 8,
-  },
+    marginLeft: 8
+  }
 });
 
 export default MoreOptionScreen;

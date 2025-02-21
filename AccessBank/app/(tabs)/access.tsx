@@ -8,25 +8,25 @@ export default function AccessScreen() {
       items: [
         { icon: 'finger-print', label: 'Biometric Login', enabled: true },
         { icon: 'phone-portrait', label: 'Device Management', enabled: true },
-        { icon: 'key', label: 'Password Manager', enabled: false },
-      ],
+        { icon: 'key', label: 'Password Manager', enabled: false }
+      ]
     },
     {
       title: 'Security',
       items: [
         { icon: 'shield-checkmark', label: '2-Factor Authentication', enabled: true },
         { icon: 'lock-closed', label: 'App Lock', enabled: true },
-        { icon: 'eye-off', label: 'Hide Balance', enabled: false },
-      ],
+        { icon: 'eye-off', label: 'Hide Balance', enabled: false }
+      ]
     },
     {
       title: 'Permissions',
       items: [
         { icon: 'camera', label: 'Camera Access', enabled: true },
         { icon: 'location', label: 'Location Services', enabled: true },
-        { icon: 'notifications', label: 'Push Notifications', enabled: true },
-      ],
-    },
+        { icon: 'notifications', label: 'Push Notifications', enabled: true }
+      ]
+    }
   ];
 
   return (
@@ -57,15 +57,9 @@ export default function AccessScreen() {
               <TouchableOpacity key={itemIndex} style={styles.accessItem}>
                 <View style={styles.accessItemLeft}>
                   <View style={[styles.accessItemIcon, { backgroundColor: item.enabled ? '#eff6ff' : '#f1f5f9' }]}>
-                    <Ionicons 
-                      name={item.icon} 
-                      size={20} 
-                      color={item.enabled ? '#2563eb' : '#94a3b8'} 
-                    />
+                    <Ionicons name={item.icon} size={20} color={item.enabled ? '#2563eb' : '#94a3b8'} />
                   </View>
-                  <Text style={[styles.accessItemLabel, { color: item.enabled ? '#1f2937' : '#64748b' }]}>
-                    {item.label}
-                  </Text>
+                  <Text style={[styles.accessItemLabel, { color: item.enabled ? '#1f2937' : '#64748b' }]}>{item.label}</Text>
                 </View>
                 <View style={[styles.toggle, { backgroundColor: item.enabled ? '#2563eb' : '#e2e8f0' }]}>
                   <View style={[styles.toggleKnob, { transform: [{ translateX: item.enabled ? 20 : 0 }] }]} />
@@ -98,19 +92,19 @@ export default function AccessScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8fafc',
+    backgroundColor: '#f8fafc'
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: 20,
-    paddingTop: 60,
+    paddingTop: 60
   },
   title: {
     fontSize: 28,
     fontWeight: '700',
-    color: '#1f2937',
+    color: '#1f2937'
   },
   helpButton: {
     width: 40,
@@ -118,7 +112,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: '#eff6ff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   securityScore: {
     margin: 20,
@@ -129,54 +123,54 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.05,
     shadowRadius: 8,
-    elevation: 2,
+    elevation: 2
   },
   scoreHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 12,
+    marginBottom: 12
   },
   scoreTitle: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#1f2937',
+    color: '#1f2937'
   },
   scoreValue: {
     fontSize: 20,
     fontWeight: '700',
-    color: '#2563eb',
+    color: '#2563eb'
   },
   scoreBar: {
     height: 8,
     backgroundColor: '#f1f5f9',
     borderRadius: 4,
-    overflow: 'hidden',
+    overflow: 'hidden'
   },
   scoreProgress: {
     height: '100%',
     backgroundColor: '#2563eb',
-    borderRadius: 4,
+    borderRadius: 4
   },
   scoreText: {
     fontSize: 14,
     color: '#64748b',
-    marginTop: 8,
+    marginTop: 8
   },
   section: {
     marginTop: 24,
-    paddingHorizontal: 20,
+    paddingHorizontal: 20
   },
   sectionTitle: {
     fontSize: 18,
     fontWeight: '600',
     color: '#1f2937',
-    marginBottom: 16,
+    marginBottom: 16
   },
   sectionContent: {
     backgroundColor: '#fff',
     borderRadius: 16,
-    overflow: 'hidden',
+    overflow: 'hidden'
   },
   accessItem: {
     flexDirection: 'row',
@@ -184,11 +178,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     padding: 16,
     borderBottomWidth: 1,
-    borderBottomColor: '#f1f5f9',
+    borderBottomColor: '#f1f5f9'
   },
   accessItemLeft: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   accessItemIcon: {
     width: 36,
@@ -196,39 +190,39 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: 12,
+    marginRight: 12
   },
   accessItemLabel: {
-    fontSize: 16,
+    fontSize: 16
   },
   toggle: {
     width: 44,
     height: 24,
     borderRadius: 12,
-    padding: 2,
+    padding: 2
   },
   toggleKnob: {
     width: 20,
     height: 20,
     backgroundColor: '#fff',
-    borderRadius: 10,
+    borderRadius: 10
   },
   deviceInfo: {
     margin: 20,
-    marginTop: 24,
+    marginTop: 24
   },
   deviceTitle: {
     fontSize: 18,
     fontWeight: '600',
     color: '#1f2937',
-    marginBottom: 16,
+    marginBottom: 16
   },
   deviceDetails: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#fff',
     padding: 16,
-    borderRadius: 16,
+    borderRadius: 16
   },
   deviceIcon: {
     width: 48,
@@ -237,20 +231,20 @@ const styles = StyleSheet.create({
     backgroundColor: '#eff6ff',
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: 16,
+    marginRight: 16
   },
   deviceText: {
-    flex: 1,
+    flex: 1
   },
   deviceName: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#1f2937',
+    color: '#1f2937'
   },
   deviceStatus: {
     fontSize: 14,
     color: '#64748b',
-    marginTop: 4,
+    marginTop: 4
   },
   deviceAction: {
     width: 40,
@@ -258,6 +252,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: '#f1f5f9',
     alignItems: 'center',
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'
+  }
 });

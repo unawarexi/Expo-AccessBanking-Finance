@@ -4,7 +4,6 @@ import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 
-
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
@@ -12,7 +11,7 @@ export default function RootLayout() {
     'Poppins-Regular': 'https://fonts.cdnfonts.com/s/16009/Poppins-Regular.woff',
     'Poppins-Medium': 'https://fonts.cdnfonts.com/s/16009/Poppins-Medium.woff',
     'Poppins-SemiBold': 'https://fonts.cdnfonts.com/s/16009/Poppins-SemiBold.woff',
-    'Poppins-Bold': 'https://fonts.cdnfonts.com/s/16009/Poppins-Bold.woff',
+    'Poppins-Bold': 'https://fonts.cdnfonts.com/s/16009/Poppins-Bold.woff'
   });
 
   useEffect(() => {
@@ -30,7 +29,6 @@ export default function RootLayout() {
         <Stack.Screen name="(auth)/Login" />
         <Stack.Screen name="(auth)/Signup" />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
- 
       </Stack>
       <StatusBar style="light" />
     </>

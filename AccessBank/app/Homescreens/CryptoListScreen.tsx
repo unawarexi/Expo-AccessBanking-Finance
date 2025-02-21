@@ -7,30 +7,27 @@ import LoadingScreen from '@/components/LoadingScreen';
 const CryptoListScreen = () => {
   const [coins, setCoins] = useState<any[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [isLoading, setIsLoading] = useState(true); 
-
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // Fetch all coins
     axios
       .get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest', {
         headers: {
-          'X-CMC_PRO_API_KEY': '3d601765-66c9-4801-b916-8d810027088c',
-        },
+          'X-CMC_PRO_API_KEY': '3d601765-66c9-4801-b916-8d810027088c'
+        }
       })
-      .then((response) => {
+      .then(response => {
         setCoins(response.data.data);
-        setIsLoading(false); 
+        setIsLoading(false);
       })
-      .catch((error) => {
+      .catch(error => {
         console.error(error);
-        setIsLoading(false); 
+        setIsLoading(false);
       });
   }, []);
 
-  const filteredCoins = coins.filter(coin =>
-    coin.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredCoins = coins.filter(coin => coin.name.toLowerCase().includes(searchTerm.toLowerCase()));
 
   const renderItem = ({ item }: { item: any }) => {
     const priceChange = item.quote.USD.percent_change_24h;
@@ -43,15 +40,8 @@ const CryptoListScreen = () => {
           <Text style={styles.coinName}>{item.name}</Text>
           <View style={styles.priceContainer}>
             <Text style={[styles.coinPrice, { color: priceColor }]}>${item.quote.USD.price.toFixed(2)}</Text>
-            <Text style={[styles.priceChange, { color: priceColor }]}>
-              {priceChange.toFixed(2)}%
-            </Text>
-            <FontAwesome
-              name={priceChange < 0 ? 'arrow-down' : 'arrow-up'}
-              size={12}
-              color={priceColor}
-              style={styles.arrowIcon}
-            />
+            <Text style={[styles.priceChange, { color: priceColor }]}>{priceChange.toFixed(2)}%</Text>
+            <FontAwesome name={priceChange < 0 ? 'arrow-down' : 'arrow-up'} size={12} color={priceColor} style={styles.arrowIcon} />
           </View>
           <Text style={styles.coinMarketCap}>Market Cap: ${item.quote.USD.market_cap.toFixed(0)}</Text>
           <Text style={styles.coinVolume}>24h Volume: ${item.quote.USD.volume_24h.toFixed(0)}</Text>
@@ -65,21 +55,10 @@ const CryptoListScreen = () => {
     return <LoadingScreen />;
   }
 
-
   return (
     <View style={styles.container}>
-      <TextInput
-        style={styles.searchBar}
-        placeholder="Search for a coin..."
-        value={searchTerm}
-        onChangeText={setSearchTerm}
-      />
-      <FlatList
-        data={filteredCoins}
-        renderItem={renderItem}
-        showsVerticalScrollIndicator = {false}
-        keyExtractor={(item) => item.id.toString()}
-      />
+      <TextInput style={styles.searchBar} placeholder="Search for a coin..." value={searchTerm} onChangeText={setSearchTerm} />
+      <FlatList data={filteredCoins} renderItem={renderItem} showsVerticalScrollIndicator={false} keyExtractor={item => item.id.toString()} />
     </View>
   );
 };
@@ -89,7 +68,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 20, // Ensures space below notch on iPhone X and similar devices
     paddingHorizontal: 16,
-    backgroundColor: '#F0F8FF',
+    backgroundColor: '#F0F8FF'
   },
   searchBar: {
     height: 45,
@@ -105,48 +84,48 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingVertical: 12,
     borderBottomWidth: 1,
-    borderBottomColor: '#eeeeee',
+    borderBottomColor: '#eeeeee'
   },
   coinImage: {
     width: 48,
-    height: 48,
+    height: 48
   },
   coinDetails: {
     marginLeft: 16,
-    flex: 1, // Ensure details fill available space
+    flex: 1 // Ensure details fill available space
   },
   coinName: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: 'bold'
   },
   priceContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   },
   coinPrice: {
     fontSize: 14,
     fontWeight: '600',
     marginTop: 4,
-    flex: 1, // Ensures price text is aligned properly
+    flex: 1 // Ensures price text is aligned properly
   },
   priceChange: {
     fontSize: 12,
     fontWeight: '600',
     textAlign: 'right', // Right-align the percentage change
-    flex: 0.5, // Makes sure the price and change are aligned
+    flex: 0.5 // Makes sure the price and change are aligned
   },
   arrowIcon: {
-    marginLeft: 4, // Slight margin between price and arrow
+    marginLeft: 4 // Slight margin between price and arrow
   },
   coinMarketCap: {
     fontSize: 12,
-    marginTop: 4,
+    marginTop: 4
   },
   coinVolume: {
     fontSize: 12,
-    marginTop: 4,
-  },
+    marginTop: 4
+  }
 });
 
 export default CryptoListScreen;

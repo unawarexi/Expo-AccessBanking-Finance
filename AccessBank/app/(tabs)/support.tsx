@@ -6,22 +6,22 @@ export default function SupportScreen() {
     { icon: 'card', label: 'Cards & Payments' },
     { icon: 'shield-checkmark', label: 'Account Security' },
     { icon: 'cash', label: 'Transfers' },
-    { icon: 'settings', label: 'App Issues' },
+    { icon: 'settings', label: 'App Issues' }
   ];
 
   const faqItems = [
     {
       question: 'How do I reset my password?',
-      answer: 'To reset your password, go to the login screen and tap "Forgot Password". Follow the instructions sent to your email.',
+      answer: 'To reset your password, go to the login screen and tap "Forgot Password". Follow the instructions sent to your email.'
     },
     {
       question: 'How do I report a suspicious transaction?',
-      answer: 'If you notice any suspicious activity, immediately lock your card in the app and contact our 24/7 support.',
+      answer: 'If you notice any suspicious activity, immediately lock your card in the app and contact our 24/7 support.'
     },
     {
       question: 'What are the transfer limits?',
-      answer: 'Transfer limits vary based on your account type and verification level. Check your limits in Profile > Account Limits.',
-    },
+      answer: 'Transfer limits vary based on your account type and verification level. Check your limits in Profile > Account Limits.'
+    }
   ];
 
   return (
@@ -36,11 +36,7 @@ export default function SupportScreen() {
       <View style={styles.searchContainer}>
         <View style={styles.searchBar}>
           <Ionicons name="search" size={20} color="#64748b" />
-          <TextInput
-            style={styles.searchInput}
-            placeholder="Search help articles..."
-            placeholderTextColor="#64748b"
-          />
+          <TextInput style={styles.searchInput} placeholder="Search help articles..." placeholderTextColor="#64748b" />
         </View>
       </View>
 
@@ -93,9 +89,7 @@ export default function SupportScreen() {
           <Ionicons name="warning" size={24} color="#dc2626" />
           <Text style={styles.emergencyTitle}>Emergency Contact</Text>
         </View>
-        <Text style={styles.emergencyText}>
-          For urgent assistance or to report a lost/stolen card, call our emergency hotline:
-        </Text>
+        <Text style={styles.emergencyText}>For urgent assistance or to report a lost/stolen card, call our emergency hotline:</Text>
         <TouchableOpacity style={styles.emergencyButton}>
           <Ionicons name="call" size={20} color="#fff" />
           <Text style={styles.emergencyButtonText}>Call Emergency Support</Text>
@@ -108,19 +102,19 @@ export default function SupportScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8fafc',
+    backgroundColor: '#f8fafc'
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: 20,
-    paddingTop: 60,
+    paddingTop: 60
   },
   title: {
     fontSize: 28,
     fontWeight: '700',
-    color: '#1f2937',
+    color: '#1f2937'
   },
   chatButton: {
     width: 40,
@@ -128,36 +122,36 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: '#eff6ff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   searchContainer: {
-    padding: 20,
+    padding: 20
   },
   searchBar: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#fff',
     borderRadius: 12,
-    padding: 12,
+    padding: 12
   },
   searchInput: {
     flex: 1,
     marginLeft: 8,
     fontSize: 16,
-    color: '#1f2937',
+    color: '#1f2937'
   },
   categories: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     padding: 20,
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   },
   categoryItem: {
     width: '48%',
     backgroundColor: '#fff',
     borderRadius: 12,
     padding: 16,
-    marginBottom: 16,
+    marginBottom: 16
   },
   categoryIcon: {
     width: 48,
@@ -166,57 +160,57 @@ const styles = StyleSheet.create({
     backgroundColor: '#eff6ff',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 12,
+    marginBottom: 12
   },
   categoryLabel: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#1f2937',
+    color: '#1f2937'
   },
   section: {
-    padding: 20,
+    padding: 20
   },
   sectionTitle: {
     fontSize: 18,
     fontWeight: '600',
     color: '#1f2937',
-    marginBottom: 16,
+    marginBottom: 16
   },
   faqItem: {
     backgroundColor: '#fff',
     borderRadius: 12,
     padding: 16,
-    marginBottom: 12,
+    marginBottom: 12
   },
   faqHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   faqQuestion: {
     fontSize: 16,
     fontWeight: '600',
     color: '#1f2937',
-    flex: 1,
+    flex: 1
   },
   faqAnswer: {
     fontSize: 14,
     color: '#64748b',
-    marginTop: 8,
+    marginTop: 8
   },
   contactSection: {
-    padding: 20,
+    padding: 20
   },
   contactOptions: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   },
   contactOption: {
     width: '48%',
     backgroundColor: '#fff',
     borderRadius: 12,
     padding: 16,
-    alignItems: 'center',
+    alignItems: 'center'
   },
   contactIcon: {
     width: 48,
@@ -224,39 +218,39 @@ const styles = StyleSheet.create({
     borderRadius: 24,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 12,
+    marginBottom: 12
   },
   contactLabel: {
     fontSize: 16,
     fontWeight: '600',
     color: '#1f2937',
-    marginBottom: 4,
+    marginBottom: 4
   },
   contactDetail: {
     fontSize: 14,
-    color: '#64748b',
+    color: '#64748b'
   },
   emergencySection: {
     margin: 20,
     padding: 20,
     backgroundColor: '#fef2f2',
-    borderRadius: 12,
+    borderRadius: 12
   },
   emergencyHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 12,
+    marginBottom: 12
   },
   emergencyTitle: {
     fontSize: 18,
     fontWeight: '600',
     color: '#dc2626',
-    marginLeft: 8,
+    marginLeft: 8
   },
   emergencyText: {
     fontSize: 14,
     color: '#64748b',
-    marginBottom: 16,
+    marginBottom: 16
   },
   emergencyButton: {
     flexDirection: 'row',
@@ -264,12 +258,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#dc2626',
     borderRadius: 8,
-    padding: 12,
+    padding: 12
   },
   emergencyButtonText: {
     fontSize: 16,
     fontWeight: '600',
     color: '#fff',
-    marginLeft: 8,
-  },
+    marginLeft: 8
+  }
 });

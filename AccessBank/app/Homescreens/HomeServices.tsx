@@ -6,7 +6,6 @@ import services from './HomeRoutes';
 import { Link } from 'expo-router';
 
 const HomeServices = () => {
-  
   const renderHeader = () => (
     <View style={styles.header}>
       <View>
@@ -25,10 +24,7 @@ const HomeServices = () => {
       <Text style={styles.balanceAmount}>$24,562.80</Text>
       <View style={styles.accountInfo}>
         <Text style={styles.accountNumber}>**** **** **** 1234</Text>
-        <Image
-          source={{ uri: 'https://images.unsplash.com/photo-1640034471744-1b52cffe4454?w=200' }}
-          style={styles.bankLogo}
-        />
+        <Image source={{ uri: 'https://images.unsplash.com/photo-1640034471744-1b52cffe4454?w=200' }} style={styles.bankLogo} />
       </View>
     </LinearGradient>
   );
@@ -38,8 +34,8 @@ const HomeServices = () => {
       <Text style={styles.sectionTitle}>Banking Services</Text>
       {services.map((row, rowIndex) => (
         <View key={rowIndex} style={styles.serviceRow}>
-          {row.map((service) => (
-            <Link key={service.id} href={service.route as any ?? '#'} asChild>
+          {row.map(service => (
+            <Link key={service.id} href={(service.route as any) ?? '#'} asChild>
               <TouchableOpacity style={styles.serviceItem}>
                 <View style={[styles.serviceIcon, { backgroundColor: service.bg }]}>
                   <Ionicons name={service.icon as any} size={20} color={service.color} />
@@ -65,23 +61,23 @@ const HomeServices = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8fafc',
+    backgroundColor: '#f8fafc'
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: 20,
-    paddingTop: 60,
+    paddingTop: 60
   },
   greeting: {
     fontSize: 16,
-    color: '#64748b',
+    color: '#64748b'
   },
   name: {
     fontSize: 24,
     fontWeight: '700',
-    color: '#1f2937',
+    color: '#1f2937'
   },
   notificationButton: {
     width: 40,
@@ -94,7 +90,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 8,
-    elevation: 3,
+    elevation: 3
   },
   balanceCard: {
     margin: 20,
@@ -104,49 +100,49 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.1,
     shadowRadius: 12,
-    elevation: 5,
+    elevation: 5
   },
   balanceLabel: {
     fontSize: 16,
-    color: '#e2e8f0',
+    color: '#e2e8f0'
   },
   balanceAmount: {
     fontSize: 36,
     fontWeight: '700',
     color: '#fff',
-    marginTop: 8,
+    marginTop: 8
   },
   accountInfo: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 20,
+    marginTop: 20
   },
   accountNumber: {
     color: '#e2e8f0',
-    fontSize: 16,
+    fontSize: 16
   },
   bankLogo: {
     width: 40,
     height: 40,
-    borderRadius: 20,
+    borderRadius: 20
   },
   servicesContainer: {
-    padding: 20,
+    padding: 20
   },
   sectionTitle: {
     fontSize: 20,
     fontWeight: '700',
     color: '#1f2937',
-    marginBottom: 16,
+    marginBottom: 16
   },
   serviceRow: {
     flexDirection: 'row',
-    marginBottom: 20,
+    marginBottom: 20
   },
   serviceItem: {
     alignItems: 'center',
-    width: '25%',
+    width: '25%'
   },
   serviceIcon: {
     width: 40,
@@ -154,15 +150,13 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 8,
+    marginBottom: 8
   },
   serviceName: {
     fontSize: 9,
     color: '#64748b',
-    textAlign: 'center',
-  },
- 
+    textAlign: 'center'
+  }
 });
 
-
-export default HomeServices
+export default HomeServices;

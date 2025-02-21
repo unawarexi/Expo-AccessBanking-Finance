@@ -3,6 +3,7 @@ import { View, Text, TextInput, FlatList, StyleSheet, Image } from 'react-native
 import axios from 'axios';
 import { FontAwesome } from '@expo/vector-icons'; // For up/down chart arrows
 import LoadingScreen from '@/components/LoadingScreen';
+import { COINMARKETCAP_API_KEY } from '@env';
 
 const CryptoListScreen = () => {
   const [coins, setCoins] = useState<any[]>([]);
@@ -14,7 +15,7 @@ const CryptoListScreen = () => {
     axios
       .get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest', {
         headers: {
-          'X-CMC_PRO_API_KEY': '3d601765-66c9-4801-b916-8d810027088c'
+          'X-CMC_PRO_API_KEY': COINMARKETCAP_API_KEY
         }
       })
       .then(response => {

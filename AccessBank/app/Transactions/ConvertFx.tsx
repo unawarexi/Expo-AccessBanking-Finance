@@ -4,6 +4,7 @@ import { FontAwesome, Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { Picker } from '@react-native-picker/picker'; // For currency dropdown
 import { LinearGradient } from 'expo-linear-gradient';
 import AccountCard from '@/components/AccountCard';
+import { CURRENCY_CONVERSION_API_KEY } from '@env';
 
 const ConvertFx = () => {
   const [fromCurrency, setFromCurrency] = useState('USD');
@@ -18,7 +19,7 @@ const ConvertFx = () => {
 
   // Fetch conversion rates using the API
   const fetchConversionRates = async () => {
-    const response = await fetch(`https://v6.exchangerate-api.com/v6/ec20f57cc92dfdbb79461b31/latest/${fromCurrency}`);
+    const response = await fetch(`https://v6.exchangerate-api.com/v6/${CURRENCY_CONVERSION_API_KEY}/latest/${fromCurrency}`);
     const data = await response.json();
     setConversionRates(data.conversion_rates); // Contains all conversion rates
     setLastUpdate(data.time_last_update_utc); // Set last update time

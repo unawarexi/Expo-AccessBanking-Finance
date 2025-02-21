@@ -12,6 +12,7 @@ import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet';
 
 import ConfirmTransaction from './ConfirmTransaction';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { BANK_DATA_API_KEY } from '@env';
 
 const AccessToOthers = () => {
   const [bankName, setBankName] = useState('');
@@ -107,7 +108,7 @@ const AccessToOthers = () => {
       }
 
       const response = await fetch(url, {
-        headers: { apikey: '5oWD3tGb2rZau9KXoSCq7H7F4FgI3hiq' }
+        headers: { apikey: BANK_DATA_API_KEY }
       });
 
       const data = await response.json();

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { FontAwesome } from '@expo/vector-icons'; // For up/down chart arrows
 import { LinearGradient } from 'expo-linear-gradient'; // For gradient backgrounds
 import { useRouter } from 'expo-router';
+import { COINMARKETCAP_API_KEY } from '@env';
 
 const PartialCrypto = () => {
   interface Coin {
@@ -25,7 +26,7 @@ const PartialCrypto = () => {
     axios
       .get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest', {
         headers: {
-          'X-CMC_PRO_API_KEY': '3d601765-66c9-4801-b916-8d810027088c'
+          'X-CMC_PRO_API_KEY': COINMARKETCAP_API_KEY
         }
       })
       .then(response => setCoins(response.data.data.slice(0, 8))) // Show 8 coins on home
